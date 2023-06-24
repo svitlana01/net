@@ -1,0 +1,45 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div class="cont">
+        <div class="regmaindiv">
+            <div class="mainfield">
+                <h2 class="hregister">Login</h2>
+
+                {% if message %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endif %}
+
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="group">
+                        <input class="field" type="text" name="username">
+                        <label>Username</label>
+                        <div class="divforline divforlineBorder">
+                            <div class="leftdiv"></div>
+                            <div class="middledivUsername"></div>
+                            <div class="otherdiv"></div>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <input class="field" type="password" name="password" >
+                        <label>Password</label>
+                        <div class="divforline divforlineBorder">
+                            <div class="leftdiv"></div>
+                            <div class="middledivPassword"></div>
+                            <div class="otherdiv"></div>
+                        </div>
+                    </div>
+                    <input class="btn btn-primary regbut" type="submit" value="Login">
+                </form>
+                <span class="spanlink">Don't have an account? <a href="{% url 'register' %}">Register here</a></span>
+
+            </div>
+        </div>
+    </div>
+
+<!-- why link from header isn't working? -->
+<script>formControlCheck()</script>
+
+
+{% endblock %}

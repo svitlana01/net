@@ -1,0 +1,61 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div class="cont">
+        <div class="regmaindiv">
+            <div class="mainfield">
+                <h2 class="hregister">Register</h2>
+
+                {% if message %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endif %}
+
+                <form action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    <div class="group">
+                        <input class="field" type="text" name="username">
+                        <label>Username</label>
+                        <div class="divforline divforlineBorder">
+                            <div class="leftdiv"></div>
+                            <div class="middledivUsername"></div>
+                            <div class="otherdiv"></div>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <input class="field" type="email" name="email">
+                        <label>Email Address</label>
+                        <div class="divforline divforlineBorder">
+                            <div class="leftdiv"></div>
+                            <div class="middledivEmail"></div>
+                            <div class="otherdiv"></div>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <input class="field" type="password" name="password" >
+                        <label>Password</label>
+                        <div class="divforline divforlineBorder">
+                            <div class="leftdiv"></div>
+                            <div class="middledivPassword"></div>
+                            <div class="otherdiv"></div>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <input class="form-control field" type="password" name="confirmation">
+                        <label for="">Confirm Password</label>
+                        <div class="divforline divforlineBorder">
+                            <div class="leftdiv"></div>
+                            <div class="middledivConfirmation"></div>
+                            <div class="otherdiv"></div>
+                        </div>
+                    </div>
+                    <input class="btn btn-primary regbut" type="submit" value="Register">
+                </form>
+                <span class="spanlink">Already have an account? <a href="{% url 'login' %}">Log In here</a></span>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- why link from header isn't working? -->
+    <script>formControlCheck()</script>
+{% endblock %}
